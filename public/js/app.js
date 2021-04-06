@@ -12,10 +12,17 @@ maincontent.classList.add('default')
 weatherFrom.addEventListener('submit', (event)=>{
     event.preventDefault()
 
-    messageOne.textContent = ''
-    messageTwo.textContent = 'Loading...'
     
     const location = search.value
+    if(location==='')
+    {
+        messageOne.textContent = ''
+        messageTwo.textContent = ''
+    }else{
+        messageOne.textContent = ''
+        messageTwo.textContent = 'Loading...'
+        
+    }
     fetch('/weather?address='+location).then((response)=>{
     response.json().then((data)=>{
         if(data.error)
@@ -31,7 +38,7 @@ weatherFrom.addEventListener('submit', (event)=>{
                 button.style.backgroundColor='#619baa'
                 button.style.borderColor = '#619baa'
             }
-            else if(weather.includes('rain'))
+            else if(weather.includes('rain') || weather.includes('haze'))
             {
                 maincontent.style.backgroundColor = '#81a0ae'
                 button.style.backgroundColor='#9DC3D5'

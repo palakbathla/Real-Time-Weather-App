@@ -36,13 +36,6 @@ app.get('/about',(req,res)=>{
     })
 })
 
-app.get('/help',(req,res) =>{
-    res.render('help',{
-        helpText: 'this is some helpful text',
-        title: 'Help',
-        name: 'Palak'
-    })
-}) 
 
 
 app.get('/weather',(req,res) =>{
@@ -70,13 +63,7 @@ app.get('/weather',(req,res) =>{
     }) 
 })
 
-app.get('/help/*', (req,res)=>{
-    res.render('404',{
-        title: '404',
-        name: 'Palak',
-        errorMessage: 'Help article not found'
-    })
-})
+
 
 app.get('*', (req,res)=>{
     res.render('404',{

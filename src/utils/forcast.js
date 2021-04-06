@@ -8,7 +8,7 @@ const forcast = (latitude, longitude, callback) =>{
         if(error){
             callback('Unable to connect to weather service', undefined)
         }else if(body.message){
-            callback('Unabe to find the location. Please try another location')
+            callback('Unable to find the location. Please try another location')
         }else{
             const data = body
             callback(undefined,
